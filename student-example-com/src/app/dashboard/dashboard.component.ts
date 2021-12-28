@@ -15,13 +15,12 @@ export class DashboardComponent implements OnInit {
   ngOnInit(): void {
     const iframe = document.createElement('IFRAME');
     iframe.id = 'admin-ifr';
-    iframe.style.display = "none";
-    (<HTMLIFrameElement>iframe).src = environment.adminURL;
+    iframe.style.display = 'none';
+    (iframe as HTMLIFrameElement).src = environment.adminURL;
     document.body.appendChild(iframe);
     this.postAdminData(environment.adminURL, 'admin');
   }
-  postAdminData(linkURL, portal) {
-     
+  postAdminData(linkURL, portal): any {
     this.userSharingService.postCrossDomainMessage(linkURL, portal);
   }
 
